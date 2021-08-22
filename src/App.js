@@ -1,11 +1,12 @@
 import React from "react";
 
 import EasyChart from "imceasychart";
+import EasyTable from "imceasytable";
 const App = () => {
   return (
     <div>
-      <EasyChart edit={true} authObj={sampledata1} />
-      {/* <EasyTable edit={true} dataObj={sampledata} /> */}
+      {/* <EasyChart edit={false} authObj={sampledata1} /> */}
+      <EasyTable edit={false} authObj={sampledata} />
     </div>
   );
 };
