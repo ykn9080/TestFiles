@@ -10,8 +10,8 @@
   "author": "yknam",
   "license": "ISC",
   "dependencies": {
-    "imceasychart": "^0.1.6",
-    "imceasytable": "^0.1.8",
+    "imceasychart": "^0.1.7",
+    "imceasytable": "^0.1.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",

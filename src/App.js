@@ -3,10 +3,13 @@ import React from "react";
 import EasyChart from "imceasychart";
 import EasyTable from "imceasytable";
 const App = () => {
+  const onSave = (val) => {
+    console.log(val);
+  };
   return (
     <div>
       {/* <EasyChart edit={false} authObj={sampledata1} /> */}
-      <EasyTable edit={false} authObj={sampledata} />
+      <EasyTable edit={true} authObj={sampledata} save={onSave} />
     </div>
   );
 };
