@@ -1,0 +1,112 @@
+{
+  "list": [
+    {
+      "label": "Collection",
+      "name": "collection",
+      "type": "input",
+      "seq": 0,
+      "placeholder": "database table",
+      "rules": [
+        {
+          "required": false
+        }
+      ],
+      "requiredmsg": "you must insert"
+    },
+    {
+      "label": "QueryString",
+      "name": "querystring",
+      "type": "input",
+      "seq": 1,
+      "placeholder": "pid=xxxx or _id=yyyy",
+      "msgright": "라이트 메시지"
+    },
+    {
+      "label": "TestString",
+      "name": "teststring",
+      "type": "input",
+      "seq": 2,
+      "placeholder": "For querystring testing "
+    },
+    {
+      "label": "Fieldname",
+      "name": "field",
+      "type": "input",
+      "seq": 3,
+      "placeholder": "table field"
+    },
+    {
+      "label": "GetMethod",
+      "name": "getmethod",
+      "type": "radio.group",
+      "seq": 4,
+      "optionArray": [
+        {
+          "value": "distinct",
+          "text": "distinct"
+        },
+        {
+          "value": "singlerow",
+          "text": "singlerow"
+        }
+      ],
+      "tooltipmsg": "distinct values from a field vs first row values"
+    },
+    {
+      "label": "Key/Value",
+      "name": "keyval",
+      "type": "radio.group",
+      "seq": 5,
+      "optionArray": [
+        {
+          "value": "key",
+          "text": "key"
+        },
+        {
+          "value": "val",
+          "text": "val"
+        }
+      ],
+      "tooltipmsg": "ex)[{name:\"young\"}]=>key:name, val:young"
+    },
+    {
+      "label": "Delete Field",
+      "name": "deletefield",
+      "type": "input",
+      "seq": 6,
+      "placeholder": "for clean up remove fieldname"
+    },
+    {
+      "label": "Submit",
+      "name": "",
+      "type": "button",
+      "seq": 7,
+      "action": "submit",
+      "btnStyle": "primary",
+      "btnColor": "primary",
+      "align": "right"
+    }
+  ],
+  "setting": {
+    "editable": false,
+    "name": "antform",
+    "layout": "horizontal",
+    "formColumn": 1,
+    "formItemLayout": {
+      "labelCol": {
+        "span": 4
+      },
+      "wrapperCol": {
+        "span": 20
+      }
+    },
+    "tailLayout": {},
+    "initial": {},
+    "size": "middle",
+    "title": "",
+    "desc": "",
+    "onFinish": "{values => {console.log(values);};}",
+    "initialValues": {}
+  },
+  "apiurl": "http://imcmaster.iptime.org:9006/bootform"
+}

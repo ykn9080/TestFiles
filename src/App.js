@@ -2,14 +2,25 @@ import React from "react";
 
 import EasyChart from "imceasychart";
 import EasyTable from "imceasytable";
+import AntFormDisplay from "imcformbuilder";
+import formArray from "./formArray.json";
 const App = () => {
   const onSave = (val) => {
     console.log(val);
   };
+  const onChange = (changedValues, allValues) => {
+    console.log(changedValues, allValues);
+  };
   return (
     <div>
-      {/* <EasyChart edit={false} authObj={sampledata1} /> */}
-      <EasyTable edit={true} authObj={sampledata} save={onSave} />
+      {/* <EasyChart edit={false} authObj={sampledata1} /> 
+      <EasyTable edit={true} authObj={sampledata} save={onSave} />*/}
+      <AntFormDisplay
+        showedit={true}
+        formArray={formArray}
+        onFinish={onSave}
+        onValuesChange={onChange}
+      />
     </div>
   );
 };
