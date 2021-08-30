@@ -5,17 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "set PORT=4009 && react-scripts start",
+    "build": "react-scripts build",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && set NODE_OPTIONS= --max_old_space_size=32768 && react-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "yknam",
   "license": "ISC",
   "dependencies": {
-    "imceasychart": "^0.1.7",
-    "imceasytable": "^0.1.9",
-    "imcformbuilder": "^0.2.0",
+    "imc-easychart": "^0.1.2",
+    "imc-easytable": "^0.1.1",
+    "imcformbuilder": "^1.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.2.1",
     "react-scripts": "^4.0.3"
   },
   "devDependencies": {
