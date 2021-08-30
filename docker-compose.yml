@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: imctestform
-    image: yknam/imctestform
+    container_name: imctestfiles
+    image: yknam/imctestfiles
     volumes:
       - ./src:/app/src
     ports:
