@@ -12,8 +12,8 @@
   "author": "yknam",
   "license": "ISC",
   "dependencies": {
-    "imc-easychart": "^0.1.2",
-    "imc-easytable": "^0.1.1",
+    "imceasychart": "^1.0.0",
+    "imceasytable": "^1.0.0",
     "imcformbuilder": "^1.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
