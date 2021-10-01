@@ -1,0 +1,19 @@
+.linkStyle {
+  margin: 1rem;
+  text-decoration: none;
+  color: blue;
+  padding: 5px;
+  border: solid 1px gray;
+  border-radius: 0.25rem;
+}
+.linkStyle:hover {
+  color: white;
+  background-color: black;
+}
+h1,
+h2,
+h3 {
+  font-family: Arial;
+  text-align: center;
+  margin: 20px 0 0 20px;
+}

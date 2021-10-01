@@ -1,15 +1,51 @@
-import React from "react";
-import EasyChart from "imc-easychart";
-import EasyTable from "imc-easytable";
+import React, { useEffect, useState } from "react";
+import { useLocation, Link } from "react-router-dom";
+import styled from "styled-components";
+import EasyChart from "imcchart";
+import EasyTable from "imcgridtable";
+import EasyData from "imcdata";
 import AntFormDisplay from "imcformbuilder";
 import formArray from "./formArray.json";
+import "./style.css";
 
 const Admin = ({ match }) => {
-  let title = match.params.name,
-    titleUpper = "";
-  if (typeof match.params.child != "undefined") title += match.params.child;
-  if (typeof match.params.grandchild != "undefined")
-    title = match.params.grandchild;
+  const location = useLocation();
+  const [showmenu, setShowmenu] = useState(false);
+  const [formurl, setFormurl] = useState();
+  const [formeurl, setFormeurl] = useState();
+  let utitle,
+    param = "",
+    title = match.params.name;
+  utitle = title;
+  if (typeof match.params.child != "undefined") {
+    title += match.params.child;
+    utitle += " " + match.params.child;
+  }
+  if (typeof match.params.grandchild != "undefined") {
+    title += match.params.grandchild;
+    utitle += " " + match.params.grandchild;
+  }
+
+  useEffect(() => {
+    const params = parseParams(location?.search); // returns an object like:
+    if (params?.showmenu) {
+      var isTrueSet = params.showmenu === "true";
+      setShowmenu(isTrueSet);
+      if (isTrueSet) param = "?showmenu=true";
+      setFormurl(`/form${param}`);
+      setFormeurl(`/form/edit${param}`);
+    }
+  }, [location]);
+  //Param Extractor
+  const parseParams = (params = "") => {
+    const rawParams = params.replace("?", "").split("&");
+    const extractedParams = {};
+    rawParams.forEach((item) => {
+      item = item.split("=");
+      extractedParams[item[0]] = item[1];
+    });
+    return extractedParams;
+  };
 
   const onSave = (val) => {
     console.log(val);
@@ -18,11 +54,13 @@ const Admin = ({ match }) => {
     console.log(changedValues, allValues);
   };
   const echart = <EasyChart edit={false} authObj={sampledata1} />;
-  const etable = <EasyTable edit={false} authObj={sampledata} save={onSave} />;
   const echartedit = <EasyChart edit={true} authObj={sampledata1} />;
+  const etable = <EasyTable edit={false} authObj={sampledata} save={onSave} />;
   const etableedit = (
     <EasyTable edit={true} authObj={sampledata} save={onSave} />
   );
+  const edata = <EasyData edit={true} authObj={sampledata1} />;
+
   const display = (
     <AntFormDisplay
       showedit={false}
@@ -39,8 +77,39 @@ const Admin = ({ match }) => {
       onValuesChange={onChange}
     />
   );
+
+  const menu = (
+    <div style={{ margin: 20 }}>
+      <ul>
+        <Link to="/chart" className="linkStyle" title="Chart display mode">
+          Chart
+        </Link>
+        <Link to="/chart/edit" className="linkStyle" title="Chart Edit mode">
+          Chart Edit
+        </Link>
+        <Link to="/table" className="linkStyle" title="Table display mode">
+          Table
+        </Link>
+        <Link to="/table/edit" className="linkStyle" title="Table Edit mode">
+          Table Edit
+        </Link>
+        <Link to="/data" className="linkStyle" title="Data create/edit">
+          Data
+        </Link>
+        <a href={formurl} className="linkStyle" title="Form display mode">
+          Form
+        </a>
+        <a href={formeurl} className="linkStyle" title="Edit button appear">
+          Formedit
+        </a>
+      </ul>
+    </div>
+  );
+
   return (
     <>
+      {showmenu && menu}
+      {title && <h1>{utitle.toUpperCase()}</h1>}
       {(() => {
         switch (title) {
           case "chart":
@@ -55,8 +124,10 @@ const Admin = ({ match }) => {
             return display;
           case "formedit":
             return edit;
+          case "data":
+            return edata;
           default:
-            return null;
+            return !showmenu && menu;
         }
       })()}
     </>
