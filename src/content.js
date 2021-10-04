@@ -79,7 +79,7 @@ const Admin = ({ match }) => {
   );
 
   const menu = (
-    <div style={{ margin: 20 }}>
+    <div style={{ margin: 20, marginTop: 40, marginBottom: 50 }}>
       <ul>
         <Link to="/chart" className="linkStyle" title="Chart display mode">
           Chart
@@ -96,13 +96,14 @@ const Admin = ({ match }) => {
         <Link to="/data" className="linkStyle" title="Data create/edit">
           Data
         </Link>
-        <a href={formurl} className="linkStyle" title="Form display mode">
+        <Link to="/form" className="linkStyle" title="Form display mode">
           Form
-        </a>
-        <a href={formeurl} className="linkStyle" title="Edit button appear">
+        </Link>
+        <Link to="/form/edit" className="linkStyle" title="Edit button appear">
           Formedit
-        </a>
+        </Link>
       </ul>
+      <hr />
     </div>
   );
 

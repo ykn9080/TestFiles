@@ -15,7 +15,7 @@
   "dependencies": {
     "imcchart": "^1.0.8",
     "imcdata": "^0.1.0",
-    "imcformbuilder": "^1.1.4",
+    "imcformbuilder": "^1.1.62",
     "imcgridtable": "^1.0.95",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
