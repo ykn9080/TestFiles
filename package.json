@@ -13,7 +13,7 @@
   "author": "yknam",
   "license": "ISC",
   "dependencies": {
-    "imcchart": "^1.0.9",
+    "imcchart": "^1.1.0",
     "imcdata": "^0.1.0",
     "imcformbuilder": "^1.1.62",
     "imcgridtable": "^1.0.96",
